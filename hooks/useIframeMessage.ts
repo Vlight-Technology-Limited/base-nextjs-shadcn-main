@@ -30,9 +30,9 @@ export function useIframeMessage() {
   // 监听父窗口响应
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-        console.log("🚀 收到event回调:", event);
       // 检查消息类型是否为响应
       if (event.data?.type === "IFRAME_EVENT_RESPONSE") {
+        console.log("🚀 收到IFRAME_EVENT_RESPONSE回调:", event);
         const { eventId, success, data, error } = event.data;
 
         const pendingPromise = pendingPromisesRef.current.get(eventId);
