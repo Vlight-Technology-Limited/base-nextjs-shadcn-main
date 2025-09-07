@@ -1,4 +1,4 @@
-import { useCallback, useRef, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react"
 
 // 请求接口
 export interface IframeEventRequest {
@@ -30,6 +30,7 @@ export function useIframeMessage() {
   // 监听父窗口响应
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
+        console.log("🚀 收到event回调:", event);
       // 检查消息类型是否为响应
       if (event.data?.type === "IFRAME_EVENT_RESPONSE") {
         const { eventId, success, data, error } = event.data;
